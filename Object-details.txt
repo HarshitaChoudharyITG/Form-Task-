@@ -1,0 +1,129 @@
+1. JS Object
+An object is a collection of properties, where each property is defined as a key-value pair. It can store various types of data and methods (functions).
+
+Example:
+
+let quickPerson = {
+  name: "Jack",
+  age: 30,
+  isStudent: false
+};
+
+2. Object Properties
+Properties are the values associated with a JavaScript object.
+
+You can access properties using dot notation or bracket notation.
+You can also add, update, or delete properties dynamically.
+
+Example:
+
+let quickCar = {
+    brand: "Toyota",
+    model: "Corolla",
+    year: 2020
+  };
+  
+  // Accessing properties
+  console.log(quickCar.brand);      // Output: Toyota
+  console.log(quickCar['model']);   // Output: Corolla
+  
+  // Adding a new property
+  quickCar.color = "Blue";
+  console.log(quickCar.color);      // Output: Blue
+  
+  // Updating a property
+  quickCar.year = 2021;
+  console.log(quickCar.year);       // Output: 2021
+  
+  // Deleting a property
+  delete quickCar.model;
+  console.log(quickCar.model);      // Output: undefined
+
+3. Object Methods
+A method is a function stored as a property. Methods allow objects to have behavior.
+
+Example:
+
+let quickPerson = {
+    firstName: "John",
+    lastName: "Doe",
+    fullName: function() {
+      return this.firstName + " " + this.lastName;
+    }
+  };
+  
+  console.log(quickPerson.fullName()); // Output: John Doe
+
+  this refers to the current object, allowing access to its properties.
+
+4. Object Display
+There are several ways to display object properties in JavaScript:
+
+Using console.log()
+Using a loop (like for...in)
+Using JSON.stringify() to convert the object to a JSON string
+
+Example:
+
+let quickBook = {
+    title: "JavaScript Essentials",
+    author: "Jane Doe",
+    year: 2023
+  };
+  
+  // Using console.log()
+  console.log(quickBook);
+  
+  // Using for...in loop
+  for (let key in quickBook) {
+    console.log(key + ": " + quickBook[key]);
+  }
+  
+  // Using JSON.stringify()
+  console.log(JSON.stringify(quickBook));
+
+5. Object Constructor
+Object constructors are templates for creating multiple objects of the same type. The most common way is by using a function constructor or the class syntax.
+
+Example 1: Function Constructor
+
+function QuickPerson(name, age) {
+    this.name = name;
+    this.age = age;
+    this.greet = function() {
+      console.log("Hello, my name is " + this.name);
+    }
+  }
+  
+  let quickPerson1 = new QuickPerson("Alice", 25);
+  let quickPerson2 = new QuickPerson("Bob", 30);
+  
+  quickPerson1.greet();  // Output: Hello, my name is Alice
+  quickPerson2.greet();  // Output: Hello, my name is Bob
+
+  Example 2: Using class Syntax
+
+  class QuickCar {
+    constructor(brand, year) {
+      this.brand = brand;
+      this.year = year;
+    }
+  
+    displayInfo() {
+      console.log(this.brand + " " + this.year);
+    }
+  }
+  
+  let myCar = new QuickCar("Honda", 2022);
+  myCar.displayInfo();  // Output: Honda 2022
+
+class is syntactic sugar for prototypes in JavaScript, making it easier to create and manage objects.
+constructor() is a special method used for initializing new objects.
+Methods in classes are added to the prototype and shared across all instances.
+
+Summary
+JS Object: Collection of key-value pairs.
+Object Properties: Values associated with an object (e.g., name, age).
+Object Methods: Functions associated with an object (e.g., fullName()).
+Object Display: Displaying objects using console.log(), for...in, or JSON.stringify().
+Object Constructor: Templates for creating objects using functions or classes.
