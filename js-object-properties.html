@@ -53,140 +53,380 @@
 </head>
 <body>
   <div class="container">
-    <h1>JavaScript Object Properties</h1>
-    <h2>1. KEY Points</h2>
-    <p>Properties are the most important part of JavaScript objects.</p>
-	<p>Properties can be changed, added, deleted, and some are read only.</p>
-    <h3>2.Accessing JavaScript Properties</h3>
-	<p>The syntax for accessing the property of an object is:</p>
-    
-	1. // objectName.property
-        let variable_name = object.key;
-	Example :-
-	<code>
-	const person = {
-		  firstname: "John",
-		  lastname: "Doe",
-		  age: 50,
-		  eyecolor: "blue"
-		};
-	console.log(person.age);
-	</code>
-	
-	2. //objectName["property"]
-	   let variable_name = object["key"];
-	Example :-
-	<code>
-	const person = {
-		  firstname: "John",
-		  lastname: "Doe",
-		  age: 50,
-		  eyecolor: "blue"
-		};
-	console.log(person["age"]);
-	</code>
+	<h2>JavaScript Object Methods</h2>
 
-    3. //objectName[expression]
-	   let variable_name = object[key];
-	Example :-
-	<code>
-	const person = {
-		  firstname: "John",
-		  lastname: "Doe",
-		  age: 50,
-		  eyecolor: "blue"
-		};
+	<table border="1">
+		<tr>
+			<th>Name</th>
+			<th>Description</th>
+		</tr>
+		<tr>
+			<td>assign()</td>
+			<td>Copies properties from a source object to a target object</td>
+		</tr>
+		<tr>
+			<td>constructor</td>
+			<td>Returns the function that created an object's prototype</td>
+		</tr>
+		<tr>
+			<td>create()</td>
+			<td>Returns an object created from an existing object</td>
+		</tr>
+		<tr>
+			<td>defineProperties()</td>
+			<td>Adds or changes properties</td>
+		</tr>
+		<tr>
+			<td>defineProperty()</td>
+			<td>Adds or changes a property</td>
+		</tr>
+		<tr>
+			<td>entries()</td>
+			<td>Returns an array of the key/value pairs of an object</td>
+		</tr>
+		<tr>
+			<td>freeze()</td>
+			<td>Prevents any changes to an object</td>
+		</tr>
+		<tr>
+			<td>fromEntries()</td>
+			<td>Returns an object created from an iterable list of key/value pairs</td>
+		</tr>
+		<tr>
+			<td>getOwnPropertyDescriptor()</td>
+			<td>Returns an array of the keys of an object</td>
+		</tr>
+		<tr>
+			<td>getOwnPropertyDescriptors()</td>
+			<td>Returns an array of the keys of an object</td>
+		</tr>
+		<tr>
+			<td>getOwnPropertyNames()</td>
+			<td>Returns an array of the keys of an object</td>
+		</tr>
+		<tr>
+			<td>groupBy()</td>
+			<td>Groups object elements according to returned callback values</td>
+		</tr>
+		<tr>
+			<td>isExtensible()</td>
+			<td>Returns true if an object is extensible</td>
+		</tr>
+		<tr>
+			<td>isFrozen()</td>
+			<td>Returns true if an object is frozen</td>
+		</tr>
+		<tr>
+			<td>isSealed()</td>
+			<td>Returns true if an object is sealed</td>
+		</tr>
+		<tr>
+			<td>keys()</td>
+			<td>Returns an array of the keys of an object</td>
+		</tr>
+		<tr>
+			<td>preventExtensions()</td>
+			<td>Prevents adding new properties to an object</td>
+		</tr>
+		<tr>
+			<td>prototype</td>
+			<td>Let you add properties and methods to JavaScript objects</td>
+		</tr>
+		<tr>
+			<td>seal()</td>
+			<td>Prevents adding new or deleting existing object properties</td>
+		</tr>
+		<tr>
+			<td>toString()</td>
+			<td>Converts an object to a string and returns the result</td>
+		</tr>
+		<tr>
+			<td>valueOf()</td>
+			<td>Returns the primitive value of an object</td>
+		</tr>
+		<tr>
+			<td>values()</td>
+			<td>Returns an array of the property values of an object</td>
+		</tr>
+	</table>
+	
+	<div class="container">
+	  <h2>OBJECT METHOD IN DETAILS</h2>
+	  
+		  1. assing() :- 
+		  The assign() method in JavaScript is used to copy the properties (or key-value pairs) from one or more source objects to a target object. It does not create a new object; instead, it modifies the target object.
+		  
+		  Syntax :- Object.assign(target, ...sources);
+		  
+		  target: Jisme properties copy hongi (ye change hoga).
+		  sources: Jisme se properties uthayi jayengi (1 ya zyada ho sakte hain).
+		  
+		  <code>
+		  const target = { a: 1, b: 2 };
+		  const source = { b: 4, c: 5 };
+		  Object.assign(target, source);
+		  console.log(target);
+		  
+		  OUTPUT {a:1, b:4, c:5}
+		  </code>
+		  
+		  2. constructor :- 
+		  The constructor property returns the function that created the Object prototype.
+
+		  Syntax  :- Object.constructor
+
+		  Return Value :- function Object() { [native code] }
+		  
+		  3. create() :- 
+		  Create a new object from the prototype of another object.
+		  
+		  Syntax :- Object.create(object, properties)
+		  
+		  <code>
+		  // Create an Object:
+		    const person = {
+			  firstName: "John",
+			  lastName: "Doe",
+			  age: 50,
+			  eyeColor: "blue"
+			};
+			
+          // Create new Object
+			let man = Object.create(person);
+			man.firstName = "Peter";
+			
+		    console.log(person.firstName, + " " + , man.firstName);
+		  </code>
+		  
+		  4. Object.defineProperties() :- This adds a new property to an object. 
+		  
+		  Syntax :- Object.defineProperty(object, property, descriptor)
+		  
+		  object	  The object to edit.
+		  property	  The property to edit.
+		  descriptor  A descriptor of the properties to be added or changed:
+
+						value: value
+						writable : true|false
+						enumerable : true|false
+						configurable : true|false
+						get : function
+						set : function
+						
+		<code>
+		    const person = {
+			  firstName: "John",
+			  lastName: "Doe"
+			};
+
+			Object.defineProperties(person, {
+			  language: {value: "en"},
+			  year: {value: "Hello"}
+			});
+			
+			console.log(person.language + " " + person.year;)
+		</code>
 		
-	let x = "firstname"
-	console.log(person[x]);
-	</code>	
-
-    <h2>3. Adding New Properties</h2>
-    <p>You can add new properties to an existing object by simply giving it a value:</p>
-	SYNTAX :- object.key = value;
-    <code>
-	const person = {
-		  firstname: "John",
-		  lastname: "Doe",
-		  age: 50,
-		  eyecolor: "blue"
-		};
-		
-	person.nationality = "india";
-	console.log(perosn.fistname + "from" + person.nationality);
-	</code>
-
-    <h2>4. Deleting Properties</h2>
-	<p>The delete keyword deletes a property from an object:</p>
-	SYNTAX :- delete object.key
-    <code>
-	const person = {
-	  firstName: "John",
-	  lastName: "Doe",
-	  age: 50,
-	  eyeColor: "blue"
-	};
-
-	delete person.age;
-	</code>
-	
-	ANOTHER WAY To DELETE :- delete object["key"]
-	<code>
-	const person = {
-	  firstName: "John",
-	  lastName: "Doe",
-	  age: 50,
-	  eyeColor: "blue"
-	};
-
-	delete person["age"];
-	</code>
-	NOTE :
-	The delete keyword deletes both the value of the property and the property itself and result in BOOLEAN Form.
-	After deletion, the property cannot be used before it is added back again.
-
-    <h2>5. Nested Objects</h2>
-    <p>Property values in an object can be other objects:</p>
-	SYNTAX :- object = {
-	             object1 = {
-				 }
-	          }
-    EXAMPLE :- myObj = {
-				  name:"John",
-				  age:30,
-				  myCars: {
-					car1:"Ford",
-					car2:"BMW",
-					car3:"Fiat"
-				  }
-				}
-    <p>You can access nested objects using the dot notation or the bracket notation:</p>
-	
-	ACCESS SYNTAX :- 
-	a) Object.object1.key
-	b) Object.object1["key"]
-	c) Object["object1"]["key"]
-	d) let p1 = "object1";
-	   let p2 = "key";
-	   object[p1][p2];
-	 
+		<h2>1. defineProperty()</h2>
     <div class="example">
-      // Create nested Objects
-		const myObj = {
-		  name: "John",
-		  age: 30,
-		  myCars: {
-			car1: "Ford",
-			car2: "BMW",
-			car3: "Fiat"
-		  }
-		}
-	//Display Object 
-	console.log(myObj.myCars.car1);
-	console.log(myObj.myCars["car2"]);
-	console.log(myObj["myCars"]["car2"]);
-    console.log(myObj[p1][p2]);
+        <p>Ek naye ya existing property ko define ya modify karta hai:</p>
+        <pre>
+let obj = {};
+Object.defineProperty(obj, 'name', { value: 'Jack', writable: false });
+console.log(obj.name); // "Jack"
+obj.name = 'John'; // Change nahi hoga
+console.log(obj.name); // "Jack"
+        </pre>
     </div>
+
+    <h2>2. entries()</h2>
+    <div class="example">
+        <p>Object ke key-value pairs ko array ke form me return karta hai:</p>
+        <pre>
+let obj = { a: 1, b: 2, c: 3 };
+console.log(Object.entries(obj)); 
+// [['a', 1], ['b', 2], ['c', 3]]
+        </pre>
+    </div>
+
+    <h2>3. freeze()</h2>
+    <div class="example">
+        <p>Object ko completely immutable bana deta hai:</p>
+        <pre>
+let obj = { name: 'Jack' };
+Object.freeze(obj);
+obj.name = 'John'; // Change nahi hoga
+console.log(obj.name); // "Jack"
+        </pre>
+    </div>
+
+    <h2>4. fromEntries()</h2>
+    <div class="example">
+        <p>Array of key-value pairs ko object me convert karta hai:</p>
+        <pre>
+let entries = [['a', 1], ['b', 2]];
+let obj = Object.fromEntries(entries);
+console.log(obj); // { a: 1, b: 2 }
+        </pre>
+    </div>
+
+    <h2>5. getOwnPropertyDescriptor()</h2>
+    <div class="example">
+        <p>Property ka descriptor return karta hai:</p>
+        <pre>
+let obj = { name: 'Jack' };
+let desc = Object.getOwnPropertyDescriptor(obj, 'name');
+console.log(desc); 
+// { value: 'Jack', writable: true, enumerable: true, configurable: true }
+        </pre>
+    </div>
+
+    <h2>6. getOwnPropertyDescriptors()</h2>
+    <div class="example">
+        <p>Saari properties ke descriptors ka object return karta hai:</p>
+        <pre>
+let obj = { name: 'Jack', age: 25 };
+console.log(Object.getOwnPropertyDescriptors(obj)); 
+        </pre>
+    </div>
+
+    <h2>7. getOwnPropertyNames()</h2>
+    <div class="example">
+        <p>Object ki saari properties ke names return karta hai (including non-enumerable):</p>
+        <pre>
+let obj = { a: 1, b: 2 };
+console.log(Object.getOwnPropertyNames(obj)); // ['a', 'b']
+        </pre>
+    </div>
+
+    <h2>8. groupBy()</h2>
+    <div class="example">
+        <p>Callback ke basis pe elements ko group karta hai:</p>
+        <pre>
+let arr = ['one', 'two', 'three', 'four'];
+let grouped = Object.groupBy(arr, word => word.length);
+console.log(grouped);
+// { 3: ['one', 'two'], 5: ['three'], 4: ['four'] }
+        </pre>
+    </div>
+
+    <h2>9. isExtensible()</h2>
+    <div class="example">
+        <p>Check karta hai ki object me naye properties add ho sakti hain ya nahi:</p>
+        <pre>
+let obj = { a: 1 };
+console.log(Object.isExtensible(obj)); // true
+Object.preventExtensions(obj);
+console.log(Object.isExtensible(obj)); // false
+        </pre>
+    </div>
+
+    <h2>10. isFrozen()</h2>
+    <div class="example">
+        <p>Check karta hai ki object freeze ho chuka hai ya nahi:</p>
+        <pre>
+let obj = { a: 1 };
+console.log(Object.isFrozen(obj)); // false
+Object.freeze(obj);
+console.log(Object.isFrozen(obj)); // true
+        </pre>
+    </div>
+
+    <h2>11. isSealed()</h2>
+    <div class="example">
+        <p>Check karta hai ki object sealed hai ya nahi (matlab naye properties add/delete nahi ho sakti):</p>
+        <pre>
+let obj = { a: 1 };
+console.log(Object.isSealed(obj)); // false
+Object.seal(obj);
+console.log(Object.isSealed(obj)); // true
+        </pre>
+    </div>
+
+    <h2>12. keys()</h2>
+    <div class="example">
+        <p>Object ki saari keys ka array return karta hai:</p>
+        <pre>
+let obj = { a: 1, b: 2 };
+console.log(Object.keys(obj)); // ['a', 'b']
+        </pre>
+    </div>
+
+    <h2>13. preventExtensions()</h2>
+    <div class="example">
+        <p>Object ko extend hone se rokh deta hai (naye properties add nahi ho sakti):</p>
+        <pre>
+let obj = { a: 1 };
+Object.preventExtensions(obj);
+obj.b = 2; // Add nahi hoga
+console.log(obj); // { a: 1 }
+        </pre>
+    </div>
+
+    <h2>14. prototype</h2>
+    <div class="example">
+        <p>Prototype chaining se naye methods/properties add karne ke liye use hota hai:</p>
+        <pre>
+function Person(name) {
+  this.name = name;
+}
+Person.prototype.greet = function () {
+  console.log(`Hello, ${this.name}!`);
+};
+let p1 = new Person('Jack');
+p1.greet(); // "Hello, Jack!"
+        </pre>
+    </div>
+
+    <h2>15. seal()</h2>
+    <div class="example">
+        <p>Object me naye properties add ya delete nahi ho sakti, par existing properties modify ho sakti hain:</p>
+        <pre>
+let obj = { a: 1 };
+Object.seal(obj);
+obj.a = 2; // Allowed
+delete obj.a; // Not allowed
+console.log(obj); // { a: 2 }
+        </pre>
+    </div>
+
+    <h2>16. toString()</h2>
+    <div class="example">
+        <p>Object ko string me convert karta hai:</p>
+        <pre>
+let obj = { a: 1 };
+console.log(obj.toString()); // "[object Object]"
+        </pre>
+    </div>
+
+    <h2>17. valueOf()</h2>
+    <div class="example">
+        <p>Object ka primitive value return karta hai:</p>
+        <pre>
+let num = new Number(42);
+console.log(num.valueOf()); // 42
+        </pre>
+    </div>
+
+    <h2>18. values()</h2>
+    <div class="example">
+        <p>Object ke saare values ka array return karta hai:</p>
+        <pre>
+let obj = { a: 1, b: 2 };
+console.log(Object.values(obj)); // [1, 2]
+        </pre>
+    </div> 
+		  
+		  
+			
+	  
+	  
+	
+	
+	</div>
+	
+	
+  </div>
 
 </body>
 </html>

@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JavaScript Object Properties</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      line-height: 1.6;
+      padding: 20px;
+      background-color: #e9ecef;
+      color: #343a40;
+    }
+    h1, h2, h3, h4 {
+      color: #495057;
+      border-bottom: 2px solid #6c757d;
+      padding-bottom: 5px;
+      margin-top: 20px;
+    }
+    h1 {
+      text-align: center;
+      color: #007bff;
+      font-size: 2.5em;
+    }
+    .container {
+      max-width: 900px;
+      margin: auto;
+      background: #fff;
+      padding: 30px;
+      box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1);
+      border-radius: 10px;
+    }
+    .example {
+      background: #f8f9fa;
+      border-left: 4px solid #007bff;
+      padding: 15px;
+      margin: 20px 0;
+      font-family: 'Courier New', monospace;
+      overflow-x: auto;
+    }
+    .note {
+      background: #ffd;
+      padding: 10px;
+      border-left: 4px solid #fa0;
+      margin: 15px 0;
+    }
+    ul, p {
+      margin: 15px 0;
+      line-height: 1.8;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>JavaScript Object Properties</h1>
+    <h2>1. KEY Points</h2>
+    <p>Properties are the most important part of JavaScript objects.</p>
+	<p>Properties can be changed, added, deleted, and some are read only.</p>
+    <h3>2.Accessing JavaScript Properties</h3>
+	<p>The syntax for accessing the property of an object is:</p>
+    
+	1. // objectName.property
+        let variable_name = object.key;
+	Example :-
+	<code>
+	const person = {
+		  firstname: "John",
+		  lastname: "Doe",
+		  age: 50,
+		  eyecolor: "blue"
+		};
+	console.log(person.age);
+	</code>
+	
+	2. //objectName["property"]
+	   let variable_name = object["key"];
+	Example :-
+	<code>
+	const person = {
+		  firstname: "John",
+		  lastname: "Doe",
+		  age: 50,
+		  eyecolor: "blue"
+		};
+	console.log(person["age"]);
+	</code>
+
+    3. //objectName[expression]
+	   let variable_name = object[key];
+	Example :-
+	<code>
+	const person = {
+		  firstname: "John",
+		  lastname: "Doe",
+		  age: 50,
+		  eyecolor: "blue"
+		};
+		
+	let x = "firstname"
+	console.log(person[x]);
+	</code>	
+
+    <h2>3. Adding New Properties</h2>
+    <p>You can add new properties to an existing object by simply giving it a value:</p>
+	SYNTAX :- object.key = value;
+    <code>
+	const person = {
+		  firstname: "John",
+		  lastname: "Doe",
+		  age: 50,
+		  eyecolor: "blue"
+		};
+		
+	person.nationality = "india";
+	console.log(perosn.fistname + "from" + person.nationality);
+	</code>
+
+    <h2>4. Deleting Properties</h2>
+	<p>The delete keyword deletes a property from an object:</p>
+	SYNTAX :- delete object.key
+    <code>
+	const person = {
+	  firstName: "John",
+	  lastName: "Doe",
+	  age: 50,
+	  eyeColor: "blue"
+	};
+
+	delete person.age;
+	</code>
+	
+	ANOTHER WAY To DELETE :- delete object["key"]
+	<code>
+	const person = {
+	  firstName: "John",
+	  lastName: "Doe",
+	  age: 50,
+	  eyeColor: "blue"
+	};
+
+	delete person["age"];
+	</code>
+	NOTE :
+	The delete keyword deletes both the value of the property and the property itself and result in BOOLEAN Form.
+	After deletion, the property cannot be used before it is added back again.
+
+    <h2>5. Nested Objects</h2>
+    <p>Property values in an object can be other objects:</p>
+	SYNTAX :- object = {
+	             object1 = {
+				 }
+	          }
+    EXAMPLE :- myObj = {
+				  name:"John",
+				  age:30,
+				  myCars: {
+					car1:"Ford",
+					car2:"BMW",
+					car3:"Fiat"
+				  }
+				}
+    <p>You can access nested objects using the dot notation or the bracket notation:</p>
+	
+	ACCESS SYNTAX :- 
+	a) Object.object1.key
+	b) Object.object1["key"]
+	c) Object["object1"]["key"]
+	d) let p1 = "object1";
+	   let p2 = "key";
+	   object[p1][p2];
+	 
+    <div class="example">
+      // Create nested Objects
+		const myObj = {
+		  name: "John",
+		  age: 30,
+		  myCars: {
+			car1: "Ford",
+			car2: "BMW",
+			car3: "Fiat"
+		  }
+		}
+	//Display Object 
+	console.log(myObj.myCars.car1);
+	console.log(myObj.myCars["car2"]);
+	console.log(myObj["myCars"]["car2"]);
+    console.log(myObj[p1][p2]);
+    </div>
+
+</body>
+</html>
