@@ -4,6 +4,134 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CLASS OVERVIEW JAVASCRIPT</title>
+    <style>
+                /* General Reset */
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        /* Body and General Styles */
+        body {
+            font-family: Arial, sans-serif;
+            line-height: 1.6;
+            background-color: #f4f4f4;
+            color: #333;
+            padding: 20px;
+        }
+
+        /* Container Styles */
+        .container {
+            max-width: 1000px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            font-size: 1.8rem;
+            margin-bottom: 10px;
+            color: #333;
+        }
+
+        p {
+            margin-bottom: 20px;
+            font-size: 1rem;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        ul {
+            margin-left: 20px;
+            list-style-type: disc;
+        }
+
+        li {
+            font-size: 1rem;
+            margin-bottom: 8px;
+        }
+
+        /* Sub-container */
+        .sub-container {
+            padding: 20px;
+            background-color: #fafafa;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            margin-top: 30px;
+        }
+
+        /* Explanation and Summary */
+        .explaination {
+            background-color: #e9f5f9;
+            padding: 15px;
+            border-left: 5px solid #3c8c8c;
+            margin-top: 20px;
+            font-size: 1rem;
+        }
+
+        .summary {
+            background-color: #f1f1f1;
+            padding: 20px;
+            margin-top: 20px;
+            border-radius: 8px;
+        }
+
+        .summary h2 {
+            color: #333;
+        }
+
+        /* Styling for Example Code */
+        .example {
+            background-color: #f9f9f9;
+            padding: 20px;
+            margin-top: 20px;
+            border: 1px solid #ddd;
+            border-radius: 8px;
+            font-family: "Courier New", monospace;
+        }
+
+        .example span {
+            font-weight: bold;
+            color: #333;
+        }
+
+        .example pre {
+            background-color: #2d2d2d;
+            color: #f1f1f1;
+            padding: 20px;
+            border-radius: 8px;
+            font-size: 1rem;
+            overflow-x: auto;
+        }
+
+        /* Adjustments for headings */
+        h5 {
+            font-size: 1.3rem;
+            color: #444;
+            margin-top: 20px;
+        }
+
+        /* Styling for Lists */
+        ul li {
+            font-size: 1rem;
+            color: #444;
+            margin: 10px 0;
+        }
+
+        /* Additional Styling for Links */
+        a {
+            color: #3498db;
+            text-decoration: none;
+        }
+
+        a:hover {
+            text-decoration: underline;
+        }
+
+    </style>
 </head>
 <body>
    <div class="container">
@@ -59,5 +187,109 @@
     Properties: Things an object has, like color or model.
     Methods: Things an object can do, like drive or stop.
   </div>
+
+  <div class="container">
+    <h2>CLASS INHERITANCE & GETTER-SETTER</h2>
+    <div class="sub-container">
+        In JavaScript, classes and inheritance allow you to create objects and reuse code through a hierarchical relationship. Additionally, getters and setters are special methods that allow you to define how to access and update the properties of an object.
+
+        1. Class Inheritance:
+        Inheritance allows one class to inherit properties and methods from another class. This is useful when you want to create new classes that share common functionality.
+        
+        Example: Class Inheritance
+
+            // Parent class (Base class)
+        class Animal {
+        constructor(name, type) {
+            this.name = name;
+            this.type = type;
+        }
+
+        // Method in the base class
+        speak() {
+            console.log(`${this.name} makes a sound.`);
+        }
+        }
+
+        // Child class (Derived class) inheriting from Animal
+        class Dog extends Animal {
+        constructor(name, type, breed) {
+            // Call parent class constructor
+            super(name, type);
+            this.breed = breed;
+        }
+
+        // Overriding the speak method
+        speak() {
+            console.log(`${this.name} barks.`);
+        }
+
+        // New method specific to Dog
+        fetch() {
+            console.log(`${this.name} is fetching the ball.`);
+        }
+        }
+
+        // Create an instance of Dog
+        let myDog = new Dog("Buddy", "Mammal", "Golden Retriever");
+
+        myDog.speak(); // "Buddy barks."
+        myDog.fetch(); // "Buddy is fetching the ball."
+
+        <div class="explaination">
+            Explanation:
+            Animal is the parent class with a constructor that initializes name and type properties, along with a speak method.
+            Dog extends Animal, inheriting its properties and methods, and also has its own method fetch.
+            super() is used to call the constructor of the parent class Animal when creating an instance of Dog.
+        </div>
+
+        2. Getters and Setters:
+        Getters and setters are special methods that allow you to define how to get and set the value of an object's property.
+
+        Getter: Allows you to access the value of an object property.
+        Setter: Allows you to modify the value of an object property.
+
+        Example: Getters and Setters
+
+        class Person {
+            constructor(firstName, lastName) {
+                this.firstName = firstName;
+                this.lastName = lastName;
+            }
+        
+            // Getter
+            get fullName() {
+                return `${this.firstName} ${this.lastName}`;
+            }
+        
+            // Setter
+            set fullName(name) {
+                let parts = name.split(" ");
+                this.firstName = parts[0];
+                this.lastName = parts[1];
+            }
+        }
+        
+        let person = new Person("John", "Doe");
+        
+        console.log(person.fullName); // "John Doe" (using the getter)
+        
+        // Using the setter to update the full name
+        person.fullName = "Jane Smith";
+        console.log(person.firstName); // "Jane"
+        console.log(person.lastName);  // "Smith"
+
+        Explanation:
+        Getter (fullName): This method allows you to retrieve the full name of the person by combining firstName and lastName.
+        Setter (fullName): This method allows you to set a new full name, and it splits the name into firstName and lastName based on the space.
+
+    </div>
+    <div class="summary">
+        Summary:
+        Inheritance allows you to reuse code from a base class in a derived class.
+        Getters and Setters allow you to control how properties are accessed and modified.
+    </div>
+  </div>
+
 </body>
 </html>
