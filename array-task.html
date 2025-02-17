@@ -1,0 +1,107 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Array Sorting and Counting</title>
+    <style>
+	body {
+		font-family: Arial, sans-serif;
+		background-color: #f4f4f4;
+		margin: 0;
+		padding: 0;
+	}
+
+	.container {
+		max-width: 600px;
+		margin: 20px auto;
+		padding: 20px;
+		background-color: #fff;
+		border-radius: 10px;
+		box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+		text-align: center;
+	}
+
+	h1 {
+		color: #333;
+	}
+
+	button {
+		background-color: #4CAF50;
+		color: white;
+		border: none;
+		padding: 10px 20px;
+		margin: 10px;
+		cursor: pointer;
+		border-radius: 5px;
+		font-size: 16px;
+	}
+
+	button:hover {
+		background-color: #45a049;
+	}
+
+	#output {
+		margin-top: 20px;
+		padding: 10px;
+		background-color: #f9f9f9;
+		border-radius: 5px;
+		border: 1px solid #ddd;
+		text-align: left;
+	}
+	</style>
+</head>
+<body>
+
+    <div class="container">
+        <h1>Array Sorting and Counting Task</h1>
+
+        <button id="sortButton">Sort Array</button>
+        <button id="lowButton">Get 3 Lowest Numbers</button>
+        <button id="highButton">Get 3 Highest Numbers</button>
+        <button id="countButton">Get Number Count</button>
+
+        <div id="output">
+            <p><strong>Sorted Array:</strong> <span id="sortedArray"></span></p>
+            <p><strong>3 Lowest Numbers:</strong> <span id="lowestNumbers"></span></p>
+            <p><strong>3 Highest Numbers:</strong> <span id="highestNumbers"></span></p>
+            <p><strong>Number Count:</strong> <span id="numberCount"></span></p>
+        </div>
+    </div>
+
+    <script>
+	let arr = [4, 4, 4, 2, 2, 2, 8, 4, 4, 7, 7, 7, 582, 753, 951, 654, 0.2, 0.5, 0.5, 0.6, 0.2, 0, 1, 2, 4, 7, 88, 99, 77, 44, 55, 88, 77, 99, 0, 22, 0.55, 66, 77, 951, 753, 850];
+
+	document.getElementById("sortButton").addEventListener("click", function() {
+		arr.sort(function(a, b){ return a - b; });
+		document.getElementById("sortedArray").textContent = arr.join(', ');
+	});
+
+	document.getElementById("lowButton").addEventListener("click", function() {
+		let lownum = arr.slice(0, 3);
+		document.getElementById("lowestNumbers").textContent = lownum.join(', ');
+	});
+
+	document.getElementById("highButton").addEventListener("click", function() {
+		let highnum = arr.slice(arr.length - 3);
+		document.getElementById("highestNumbers").textContent = highnum.join(', ');
+	});
+
+	document.getElementById("countButton").addEventListener("click", function() {
+		let quicknum = {};
+
+		for (let i = 0; i < arr.length; i++) {
+			let num = arr[i];
+			if (quicknum[num]) {
+				quicknum[num]++;
+			} else {
+				quicknum[num] = 1;
+			}
+		}
+
+		let countText = JSON.stringify(quicknum, null, 2);
+		document.getElementById("numberCount").textContent = countText;
+	});
+	</script>
+</body>
+</html>
