@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Book Library System</title>
+</head>
+<body>
+<script>
+    class Book {
+        constructor(title, author, year) {
+            this.title = title;
+            this.author = author;
+            this.year = year;
+        }
+    }
+
+    class Library {
+        constructor() {
+            this.books = []; 
+        }
+    
+        addBook(book) {
+            this.books.push(book); 
+        }
+    
+        removeBook(title) {
+            this.books = this.books.filter(book => book.title !== title); 
+        }
+    
+        listBooks() {
+            if (this.books.length === 0) {
+                console.log("No books available.");
+            } else {
+                this.books.forEach(book => {
+                    console.log(`${book.title} by ${book.author}, published in ${book.year}`);
+                });
+            }
+        }
+    
+        findBook(title) {
+            return this.books.find(book => book.title === title); 
+        }
+    
+        getBookInfo(title) {
+            const book = this.findBook(title);
+            if (book) {
+                console.log(`Title: ${book.title}`);
+                console.log(`Author: ${book.author}`);
+                console.log(`Year: ${book.year}`);
+            } else {
+                console.log("Book not found.");
+            }
+        }
+    }
+
+    const library = new Library();
+
+    const book1 = new Book("The Great Gatsby", "F. Scott Fitzgerald", 1925);
+    const book2 = new Book("To Kill a Mockingbird", "Harper Lee", 1960);
+    const book3 = new Book("1984", "George Orwell", 1949);
+    
+    library.addBook(book1);
+    library.addBook(book2);
+    library.addBook(book3);
+
+    library.listBooks();
+    console.log("All books in the library:");
+
+    library.getBookInfo("1984");
+    console.log("\nDetails of '1984':");
+
+    library.removeBook("The Great Gatsby");
+    library.listBooks();
+    console.log("\nRemoving 'The Great Gatsby':");
+
+    library.getBookInfo("The Great Gatsby");
+    console.log("\nFinding 'The Great Gatsby' after removal:");
+</script>
+</body>
+</html>
+
