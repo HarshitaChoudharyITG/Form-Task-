@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CLASS OVERVIEW JAVASCRIPT</title>
+</head>
+<body>
+   <div class="container">
+      <p>A class is like a template or blueprint that tells JavaScript how to make an object. The object will have some properties (things it can have) and methods (things it can do).</p>
+      <p>For example :- let's imagine we're making cars. We want to make a bunch of cars, and each car has a color and a model, and each car can drive and stop.</p>
+   </div>
+   <div class="example">
+    <h2>Creating a Car Class</h2>
+    <span>EXAMPLE :- </span>
+        // This is the Car blueprint (class)
+        class Car {
+            // The constructor is like a "setup" function that creates a new car
+            constructor(color, model) {
+                this.color = color;   // This car has a color
+                this.model = model;   // This car has a model
+            }
+
+            // This is a function (method) that tells the car to drive
+            drive() {
+                console.log(`${this.model} is driving!`);
+            }
+
+            // This is another function (method) that tells the car to stop
+            stop() {
+                console.log(`${this.model} has stopped.`);
+            }
+        }
+
+        // Now we use the class to create (make) a new car
+        let myCar = new Car("red", "Toyota");  // This is a red Toyota
+
+        // We can use the methods of this car
+        myCar.drive();  // Output: Toyota is driving!
+        myCar.stop();   // Output: Toyota has stopped.
+      <p>
+        <h5>Explaination</h5>
+        <ul>
+         <li>
+          class Car { ... } is the blueprint. It says what a car can do (like drive and stop) and what a car has (like color and model).
+        </li>
+        <li>
+         constructor(color, model) is where we set up the car when we make it. We give it a color and model when we create a car.
+        </li>
+        <li>Methods like drive() and stop() are actions that the car can do.
+        </li>
+    </ul>
+    </p>
+</div>
+    <div class="summary">
+    <h2>Summary of Basic JavaScript Class Concepts:</h2>
+    Class: A template (blueprint) for creating objects.
+    Constructor: The special function inside the class that sets up the object.
+    Properties: Things an object has, like color or model.
+    Methods: Things an object can do, like drive or stop.
+  </div>
+</body>
+</html>
