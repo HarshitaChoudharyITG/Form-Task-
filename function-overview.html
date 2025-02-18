@@ -1,0 +1,168 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Functions Overview</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f4f4f9;
+            color: #333;
+            line-height: 1.6;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #444;
+        }
+
+        .container {
+            max-width: 800px;
+            margin: 0 auto;
+            background: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        h2 {
+            color: #4CAF50;
+        }
+
+        pre {
+            background: #eaeaea;
+            padding: 10px;
+            border-radius: 4px;
+            overflow-x: auto;
+        }
+
+        code {
+            color: #c7254e;
+            font-family: 'Courier New', Courier, monospace;
+        }
+
+        .example {
+            background: #f9f9f9;
+            border-left: 4px solid #4CAF50;
+            padding: 10px;
+            margin: 10px 0;
+        }
+    </style>
+</head>
+<body>
+    <h1>JavaScript Functions Notes</h1>
+    <div class="container">
+        <h2>1. Function Declaration</h2>
+        <p>Yeh sabse basic tareeka hai function define karne ka.</p>
+        <p>function keyword se shuru hota hai aur iska naam zaruri hota hai.
+        <p>Isse pehle call karne pe bhi kaam karta hai kyunki yeh hoist hota hai..</p>
+        <div class="example">
+            Syntax: function functionName(parameters) {
+                // Code to be executed
+            }
+            <pre><code>
+            function greet(name) {
+                console.log("Hello, " + name + "!");
+            }
+            greet("Jack");
+            </code></pre>
+        </div>
+
+        <h2>2. Function Expression</h2>
+        <p>Yeh ek anonymous function ko ek variable mein store karta hai.</p>
+        <p>Isse pehle call nahi kar sakte kyunki yeh hoist nahi hota.</p>
+        <div class="example">
+            Syntax: const variableName = function(parameters) {
+                // Code to be executed
+            };
+            <pre><code>
+            const sum = function(a, b) {
+                return a + b;
+            };
+            console.log(sum(5, 3));
+            </code></pre>
+        </div>
+
+        <h2>3. Function Constructor</h2>
+        <p>new Function() syntax se naya function banaya ja sakta hai.</p>
+        <p>Yeh runtime pe function create karta hai jo thoda slow ho sakta hai.</p>
+        <div class="example">
+            Syntax: const func = new Function('param1', 'param2', 'return param1 + param2;');
+            <pre><code>
+            const add = new Function('a', 'b', 'return a + b');
+            console.log(add(2, 3));
+            </code></pre>
+        </div>
+
+        <h2>4. Function Hoisting</h2>
+        <p>Function declarations hoist hote hain, matlab unhe pehle call kar sakte hain.</p>
+        <p>Lekin Function Expressions hoist nahi hote.</p>
+
+        <div class="example">
+            sayHello();  // Works because of hoisting
+            function sayHello() {
+                console.log("Hello!");
+            }
+            
+            // greet();  // Error: Cannot access 'greet' before initialization
+            const greet = function() {
+                console.log("Hi!");
+            };
+        </div>
+
+        <h2>5. Self-Invoking Functions (IIFE)</h2>
+        <p>Yeh functions turant execute ho jaate hain jab define hote hain.</p>
+        <p>Mostly anonymous hote hain.</p>
+        <p>Local scope maintain karte hain.</p>
+
+        <div class="example">
+            Syntax: (function() {
+                // Code to be executed
+            })();
+
+            Example: (function(name) {
+                console.log("Welcome, " + name + "!");
+            })("Jack");
+        </div>
+
+        <h2>6. Functions Can Be Used as Values</h2>
+        <p>Functions ko variables mein store kar sakte hain, dusre functions ko pass kar sakte hain, ya return kar sakte hain.</p>
+
+        <div class="example">
+            function multiply(a, b) {
+                return a * b;
+            }
+            const operation = multiply;
+            console.log(operation(4, 5));
+        </div>
+
+        <h2>7. Functions are Objects</h2>
+        <p>JavaScript mein functions bhi objects hote hain.</p>
+        <p>Inke paas properties aur methods hote hain jaise .name, .length, .toString().</p>
+
+        <div class="example">
+            function demo(x) {
+                return x * x;
+            }
+            console.log(demo.name);   // Output: demo
+            console.log(demo.length); // Output: 1
+        </div>
+
+        <h2>8. Arrow Functions</h2>
+        <p>ES6 mein introduce hui thi.</p>
+        <p>Short syntax aur lexical this binding hoti hai.</p>
+        <p>function keyword nahi hota.</p>
+        <div class="example">
+            Syntax: const functionName = (parameters) => {
+                // Code to be executed
+            };
+            <pre><code>
+                const add = (a, b) => a + b;
+                console.log(add(2, 3));
+            </code></pre>
+        </div>
+    </div>
+</body>
+</html>
